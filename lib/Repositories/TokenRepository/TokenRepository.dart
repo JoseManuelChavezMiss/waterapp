@@ -17,7 +17,7 @@ class TokenRepository {
 
       final roles = values['roles'];
       if (roles != null && roles is List && roles.isNotEmpty) {
-        return roles[0];
+        return roles[0].toString(); // Conversión segura a String
       } else {
         throw Exception('Roles not found in token');
       }
@@ -31,5 +31,10 @@ class TokenRepository {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('auth_token');
     return token != null && token.isNotEmpty;
+  }
+
+  Future<String?> getToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('auth_token');
   }
 }

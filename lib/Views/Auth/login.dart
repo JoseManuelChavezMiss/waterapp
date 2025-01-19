@@ -55,8 +55,21 @@ class _LoginState extends State<Login> {
               MaterialPageRoute(builder: (context) => const SidebarLayout()),
             );
             break;
-          case 'ROLE_USER':
-            print('Rol user');
+          case 'ROLE_REPARTIDOR':
+            Fluttertoast.showToast(
+                msg: "Bienvenido repartidor",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.TOP,
+                timeInSecForIosWeb: 1,
+                backgroundColor: Colors.green,
+                textColor: Colors.white,
+                fontSize: 16.0,
+                webPosition: "right");
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SidebarLayout()),
+            );
+
             break;
           default:
             print('Rol no encontrado');
